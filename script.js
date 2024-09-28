@@ -58,12 +58,12 @@ function shuffleCard(){
         card.addEventListener('click', flipCard);
     });
 }
+shuffleCard();
 
 cards.forEach(card => {
     card.classList.add('flip');
+    setTimeout(() => {
+        card.classList.remove('flip');
+    }, 2000);
     card.addEventListener('click', flipCard);
 });
-
-setTimeout(() => {
-    shuffleCard();
-}, 2300);
