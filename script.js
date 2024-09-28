@@ -52,18 +52,17 @@ function shuffleCard(){
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
     cards.forEach(card => {
-        card.classList.remove('flip');
         let imgTag = card.querySelector('img');
         imgTag.src = `img/img-${arr.pop()}.png`;
         card.addEventListener('click', flipCard);
+        card.classList.add('flip');
+        setTimeout(() => {
+            card.classList.remove('flip');
+        }, 2000);
     });
 }
 shuffleCard();
 
 cards.forEach(card => {
-    card.classList.add('flip');
-    setTimeout(() => {
-        card.classList.remove('flip');
-    }, 2000);
     card.addEventListener('click', flipCard);
 });
